@@ -1,5 +1,11 @@
 
 public class Game {
+    
+    // Game constants
+    private static final int BLACKJACK_VALUE = 21;
+    private static final int DEALER_HIT_THRESHOLD = 16;
+    private static final int STARTING_MONEY = 100;
+    private static final int DECK_SIZE = 52;
 
     static boolean play() {
 
@@ -24,7 +30,7 @@ public class Game {
       /* Check if one of the players has two cards totaling to 21.
          The player with 21 wins the game. Computer wins ties.
       */
-        if (computer.getHandTotal () == 21) {
+        if (computer.getHandTotal() == BLACKJACK_VALUE) {
             System.out.println("Computer has the " + computer.getCard(0)
                     + " and the " + computer.getCard(1) + ".");
             System.out.println("User has the " + user.getCard(0)
@@ -34,7 +40,7 @@ public class Game {
             return false;
         }
 
-        if (user.getHandTotal () == 21) {
+        if (user.getHandTotal() == BLACKJACK_VALUE) {
             System.out.println("Computer has the " + computer.getCard(0)
                     + " and the " + computer.getCard(1) + ".");
             System.out.println("User has the " + user.getCard(0)
@@ -56,7 +62,7 @@ public class Game {
             System.out.println("Your cards are:");
             for ( int i = 0; i < user.totalCards(); i++ )
                 System.out.println("    " + user.getCard(i));
-            System.out.println("Your total is " + user.getHandTotal ());
+            System.out.println("Your total is " + user.getHandTotal());
             System.out.println();
             System.out.println("Computer is showing the " + computer.getCard(0));
             System.out.println();
@@ -82,8 +88,8 @@ public class Game {
                 System.out.println();
                 System.out.println("User hits.");
                 System.out.println("Your card is the " + newCard);
-                System.out.println("Your total is now " + user.getHandTotal ());
-                if (user.getHandTotal () > 21) {
+                System.out.println("Your total is now " + user.getHandTotal());
+                if (user.getHandTotal() > BLACKJACK_VALUE) {
                     System.out.println();
                     System.out.println("You went over 21, you loose.");
                     System.out.println("Computer's other card was the "
@@ -104,34 +110,34 @@ public class Game {
         System.out.println("Computer's cards are");
         System.out.println("    " + computer.getCard(0));
         System.out.println("    " + computer.getCard(1));
-        while (computer.getHandTotal () <= 16) {
+        while (computer.getHandTotal() <= DEALER_HIT_THRESHOLD) {
             Card newCard = deck.take();
             System.out.println("Computer hits and gets the " + newCard);
             computer.add(newCard);
-            if (computer.getHandTotal () > 21) {
+            if (computer.getHandTotal() > BLACKJACK_VALUE) {
                 System.out.println();
                 System.out.println("Computer went over 21. You win.");
                 return true;
             }
         }
-        System.out.println("Computer's total is " + computer.getHandTotal ());
+        System.out.println("Computer's total is " + computer.getHandTotal());
 
       /* If we get to this point, both players have 21 or less.  We
          can determine the winner by comparing the values of their hands. */
 
         System.out.println();
-        if (computer.getHandTotal () == user.getHandTotal ()) {
+        if (computer.getHandTotal() == user.getHandTotal()) {
             System.out.println("Computer wins on a tie.  You loose.");
             return false;
         }
-        else if (computer.getHandTotal () > user.getHandTotal ()) {
+        else if (computer.getHandTotal() > user.getHandTotal()) {
             System.out.println("Computer wins, " + computer.getHandTotal()
                     + " points to " + user.getHandTotal() + ".");
             return false;
         }
         else {
-            System.out.println("You win, " + user.getHandTotal ()
-                    + " points to " + computer.getHandTotal () + ".");
+            System.out.println("You win, " + user.getHandTotal()
+                    + " points to " + computer.getHandTotal() + ".");
             return true;
         }
 
@@ -146,7 +152,7 @@ public class Game {
         System.out.println("Hello and Welcome");
         System.out.println();
 
-        money = 100;  // User starts with $100.
+        money = STARTING_MONEY;  // User starts with $100.
 
         while (true) {
             System.out.println("You have " + money + " dollars.");
