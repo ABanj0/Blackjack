@@ -69,7 +69,7 @@ public class Player {
 
 
 
-    public int getHandTotal () {
+    public int getHandTotal() {
         int cardcount;
         int total = 0;
         boolean ace = false;
@@ -84,7 +84,7 @@ public class Player {
         }
         total += cardcount;}
 
-        if (ace && total +10 <=21) {
+        if (ace && total + 10 <= 21) {
             total += 10;
         }
         return total;
