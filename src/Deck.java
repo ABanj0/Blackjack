@@ -22,9 +22,9 @@ public class Deck {
 
     public void shuffle(){
         int i;
-        int max =52;
-        int min = 1;
-        int range = max - min;
+        int max = 51;  // Changed from 52 to 51 since array indices are 0-51
+        int min = 0;   // Changed from 1 to 0 for proper array indexing
+        int range = max - min + 1;  // Added +1 to include max value
         for( i = 0; i < 51; i++){
             int randomgen = ((int)(Math.random() * range))+ min;
             Card deck2 = deck[i];
