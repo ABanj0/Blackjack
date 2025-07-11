@@ -98,7 +98,7 @@ public class Card {
                 return "Six";
             }
             case 7 -> {
-                return "Sevem";
+                return "Seven";
             }
             case 8 -> {
                 return "Eight";
