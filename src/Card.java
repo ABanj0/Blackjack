@@ -26,20 +26,7 @@ public class Card {
     }*/
 
 
-    public enum Color {
-        Diamonds, Hearts, Clubs, Spades
-    }
 
-    public enum Value {
-        Two(2), Three(3), Four(4), Five(5), Six(6), Seven(7),
-        Eight(8), Nine(9), Ten(10), Jack(10), Queen(10), King(10), Ace(11);
-
-        int FaceValue;
-
-        Value(int FaceValue) {
-            this.FaceValue = FaceValue;
-        }
-    }
 
 
     public Card(int value, int color ){
@@ -58,7 +45,7 @@ public class Card {
         return value;
     }
 
-    public String ColorToString(){
+    public String colorToString(){
         String colorString = "";
         switch ( color ){
             case CLUBS -> {
@@ -76,7 +63,7 @@ public class Card {
 
 
 // Make Jack, Queen, King and Ace equal to (1,11,12,13)
-    public String ValueToString(){
+    public String valueToString(){
         String valueString = " ";
         switch (value) {
             case 1 -> {
@@ -124,7 +111,7 @@ public class Card {
     }
 
     public String toString(){
-        return ValueToString() + " of " + ColorToString();
+        return valueToString() + " of " + colorToString();
     }
 
 
